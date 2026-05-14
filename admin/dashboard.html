@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Leads | MK Digital</title>
+    <link rel="stylesheet" href="admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { display: block; overflow-x: hidden; }
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+        .logout-btn { background: none; border: 1px solid var(--border-color); color: white; padding: 8px 15px; border-radius: 6px; cursor: pointer; }
+        .logout-btn:hover { background: rgba(255,0,0,0.2); border-color: red; }
+        .whatsapp-btn { color: #25D366; text-decoration: none; font-size: 1.2rem; margin-left: 10px; transition: 0.3s; }
+        .whatsapp-btn:hover { transform: scale(1.2); color: #128C7E; }
+    </style>
+</head>
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <img src="../LP nova Alpha – Assessoria Alpha_files/logo-white-mk-no-bg.png" alt="MK Digital" style="width: 120px; margin-bottom: 40px;">
+            <nav>
+                <div style="color: var(--primary-color); font-weight: 700; margin-bottom: 20px;">Leads Capturados</div>
+                <div style="color: var(--text-muted); cursor: pointer;" onclick="logout()">Sair</div>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <h1>Gerenciamento de Leads</h1>
+                <button class="logout-btn" onclick="logout()">Sair</button>
+            </header>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total de Leads</h3>
+                    <p id="totalLeads">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Novos (Hoje)</h3>
+                    <p id="newLeads">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Convertidos</h3>
+                    <p id="convertedLeads">0</p>
+                </div>
+            </div>
+
+            <div class="card" style="background: var(--card-bg); padding: 20px; border-radius: 15px; border: 1px solid var(--border-color);">
+                <table class="leads-table">
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Nome</th>
+                            <th>WhatsApp</th>
+                            <th>Clínica</th>
+                            <th>Especialidade</th>
+                            <th>Faturamento</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leadsTableBody">
+                        <!-- Leads serão carregados aqui -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/config.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

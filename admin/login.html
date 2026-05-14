@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Admin | MK Digital</title>
+    <link rel="stylesheet" href="admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="login-container">
+        <img src="../LP nova Alpha – Assessoria Alpha_files/logo-white-mk-no-bg.png" alt="MK Digital" style="width: 150px; margin-bottom: 20px;">
+        <h1>Painel Administrativo</h1>
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" required placeholder="seu@email.com">
+            </div>
+            <div class="input-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" required placeholder="••••••••">
+            </div>
+            <button type="submit" class="btn-primary">Entrar no Painel</button>
+        </form>
+        <p id="loginError" style="color: #ff4d4d; margin-top: 15px; font-size: 14px; display: none;">E-mail ou senha incorretos.</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/config.js"></script>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const errorMsg = document.getElementById('loginError');
+
+            const { data, error } = await window.supabaseClient.auth.signInWithPassword({
+                email,
+                password
+            });
+
+            if (error) {
+                errorMsg.style.display = 'block';
+                errorMsg.innerText = 'Erro ao entrar: ' + error.message;
+            } else {
+                window.location.href = 'dashboard.html';
+            }
+        });
+    </script>
+</body>
+</html>
