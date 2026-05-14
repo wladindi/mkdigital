@@ -19,7 +19,14 @@
 </head>
 <body>
     <div class="dashboard-layout">
-        <aside class="sidebar">
+        <header class="mobile-header">
+            <img src="../LP nova Alpha – Assessoria Alpha_files/logo-white-mk-no-bg.png" alt="MK Digital" style="width: 80px;">
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </header>
+
+        <aside class="sidebar" id="sidebar">
             <img src="../LP nova Alpha – Assessoria Alpha_files/logo-white-mk-no-bg.png" alt="MK Digital" style="width: 120px; margin-bottom: 40px;">
             <nav>
                 <div style="color: var(--primary-color); font-weight: 700; margin-bottom: 20px;">Leads Capturados</div>
@@ -49,23 +56,25 @@
             </div>
 
             <div class="card" style="background: var(--card-bg); padding: 20px; border-radius: 15px; border: 1px solid var(--border-color);">
-                <table class="leads-table">
-                    <thead>
-                        <tr>
-                            <th>Data</th>
-                            <th>Nome</th>
-                            <th>WhatsApp</th>
-                            <th>Clínica</th>
-                            <th>Especialidade</th>
-                            <th>Faturamento</th>
-                            <th>Status</th>
-                            <th>Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody id="leadsTableBody">
-                        <!-- Leads serão carregados aqui -->
-                    </tbody>
-                </table>
+                <div class="table-responsive">
+                    <table class="leads-table">
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Nome</th>
+                                <th>WhatsApp</th>
+                                <th>Clínica</th>
+                                <th>Especialidade</th>
+                                <th>Faturamento</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leadsTableBody">
+                            <!-- Leads serão carregados aqui -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </main>
     </div>
